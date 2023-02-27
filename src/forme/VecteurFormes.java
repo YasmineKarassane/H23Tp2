@@ -3,6 +3,7 @@ package forme;
 import forme.IVecteurFormes;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public abstract class VecteurFormes implements IVecteurFormes {
 
@@ -35,5 +36,41 @@ public abstract class VecteurFormes implements IVecteurFormes {
         } else {
             throw new ArrayIndexOutOfBoundsException();
         }
+    }
+
+    public void melanger() {
+
+    }
+
+//    public void shuffle() {
+//        Object[] tabTemporaire = new Object[size()];
+//
+//        for (int i = 0; i < size(); i++) {
+//            int indexi = Utile.getNombreAleatoireEntreBorne(0, size() - 1);
+//            int indexj = Utile.getNombreAleatoireEntreBorne(0, size() - 1);
+//            permuter(indexi, indexj);
+//
+//            for (int j = 0; j < size(); j++) {
+//                tabTemporaire[j] = getTab()[j];
+//            }
+//        }
+//        setTab(tabTemporaire);
+//    }
+
+    public void shuffle() {
+
+        for (int i = 0; i < getVecteur().size(); i++) {
+            Random chiffreRandom = new Random();
+            int indexi = chiffreRandom.nextInt(getVecteur().size() - 1);
+            int indexj = chiffreRandom.nextInt(getVecteur().size() - 1);
+            permuter(indexi,indexj);
+        }
+    }
+
+    public void permuter(int indicei, int indicej) {
+        Forme temporairei = getVecteur().get(indicei);
+        Forme temporairej = getVecteur().get(indicej);
+        getVecteur().set(indicei, temporairej);
+        getVecteur().set(indicej, temporairei);
     }
 }
