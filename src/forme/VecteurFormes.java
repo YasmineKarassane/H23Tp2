@@ -39,7 +39,12 @@ public abstract class VecteurFormes implements IVecteurFormes {
     }
 
     public void melanger() {
-
+        for (int i = 0; i < getVecteur().size(); i++) {
+            Random chiffreRandom = new Random();
+            int indexi = chiffreRandom.nextInt(getVecteur().size() - 1);
+            int indexj = chiffreRandom.nextInt(getVecteur().size() - 1);
+            permuter(indexi, indexj);
+        }
     }
 
 //    public void shuffle() {
@@ -57,14 +62,19 @@ public abstract class VecteurFormes implements IVecteurFormes {
 //        setTab(tabTemporaire);
 //    }
 
-    public void shuffle() {
-
-        for (int i = 0; i < getVecteur().size(); i++) {
-            Random chiffreRandom = new Random();
-            int indexi = chiffreRandom.nextInt(getVecteur().size() - 1);
-            int indexj = chiffreRandom.nextInt(getVecteur().size() - 1);
-            permuter(indexi,indexj);
-        }
+    public void trier() {
+        int enOrdre;
+        do {
+            enOrdre = 0;
+            for (int i = 0; i < getVecteur().size(); i++) {
+                int valeur = getVecteur().get(i).compareTo(getVecteur().get(i + 1));
+                if (valeur < 0) {
+                    permuter(i, (i + 1));
+                } else {
+                    enOrdre++;
+                }
+            }
+        } while (enOrdre < getVecteur().size());
     }
 
     public void permuter(int indicei, int indicej) {
