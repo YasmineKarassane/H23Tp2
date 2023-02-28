@@ -83,4 +83,15 @@ public abstract class VecteurFormes implements IVecteurFormes {
         getVecteur().set(indicei, temporairej);
         getVecteur().set(indicej, temporairei);
     }
+
+    @Override
+    public String toString() {
+        String stringARetourné = "";
+
+        for (int i = 0; i < getVecteur().size(); i++) {
+            stringARetourné += getVecteur().get(i).toStringCourt();
+        }
+        
+        return stringARetourné;
+    }
 }

@@ -117,4 +117,8 @@ public abstract class Forme implements Comparable<Forme> {
         compare = (this.nom + this.couleur).compareTo(nomCouleur);
         return compare;
     }
+
+    public String toStringCourt(){
+        return getNom() +" "+ getCouleur();
+    }
 }
