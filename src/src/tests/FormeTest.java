@@ -87,4 +87,13 @@ class FormeTest {
         assertTrue(cercle.compareTo(triangle) == -17);
         assertFalse(cercle.compareTo(triangle) == 0);
     }
+    @Test
+    void toStringCourt() {
+        Forme cercle = new Cercle(29);
+        Forme triangle = new Triangle(20, 20, 20);
+        triangle.setCouleur(Couleur.VERT);
+
+        assertTrue(cercle.toStringCourt() == "Cercle rouge");
+        assertTrue(triangle.toStringCourt() == "Triangle vert");
+    }
 }
