@@ -119,6 +119,6 @@ public abstract class Forme implements Comparable<Forme> {
     }
 
     public String toStringCourt(){
-        return getNom() +" "+ getCouleur();
+        return nom + " " + couleur.getNom();
     }
 }

@@ -15,6 +15,9 @@ class VecteurFormesTest {
 
     @Test
     void remplir() {
+        VecteurFormes vecteur = new VecteurFormes();
+        vecteur.remplir(6);
+        //assertEquals(vecteur);
     }
 
     @Test
