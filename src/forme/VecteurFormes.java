@@ -16,6 +16,7 @@ public class VecteurFormes implements IVecteurFormes {
 
     public void remplir(int nbrElements) throws ArrayIndexOutOfBoundsException {
         if (nbrElements > 0) {
+
             for (int i = 0; i < nbrElements; i++) {
 
                 for (int j = 0; j < Couleur.values().length; j++) {
@@ -82,7 +83,7 @@ public class VecteurFormes implements IVecteurFormes {
         } while (enOrdre < getVecteur().size());
     }
 
-    public void permuter(int indicei, int indicej) {
+    private void permuter(int indicei, int indicej) {
         Forme temporairei = getVecteur().get(indicei);
         Forme temporairej = getVecteur().get(indicej);
         getVecteur().set(indicei, temporairej);
@@ -99,4 +100,11 @@ public class VecteurFormes implements IVecteurFormes {
 
         return stringARetourné;
     }
+
+private boolean validerNbrFormes(int nbFormes){
+        if (vecteur.size() == nbFormes){
+            return true;
+        }
+        return false;
+}
 }

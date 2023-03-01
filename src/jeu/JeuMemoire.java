@@ -9,13 +9,9 @@ import java.util.Random;
 
 public class JeuMemoire implements IJeuMemoire {
 
-<<<<<<<HEAD
     public static int COLONNE = 4;
     public static int LIGNE = 5;
-=======
-    public static int COLONNE;
-    public static int LIGNE;
->>>>>>>main
+
     private static int LONGUEUR_CHAINE;
     public static int NBR_ELEMENTS_GRILLE;
 

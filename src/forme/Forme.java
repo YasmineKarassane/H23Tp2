@@ -102,7 +102,7 @@ public abstract class Forme implements Comparable<Forme> {
      */
     @Override
     public String toString() {
-        return nom + " " + couleur.getNom() + " " + getClass().toString();
+        return nom + " " + couleur.getNom() + " " + calculerSurface() + ", " + calculerSurface();
     }
 
     /**

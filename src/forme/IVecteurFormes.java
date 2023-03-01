@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public interface IVecteurFormes {
 
     /**
-     * Obtenir le vecteur de formes
+     * Obtenir le vecteur de formes avec le nombre de forme
      * @return le vecteur de formes
      */
     public ArrayList<Forme> getVecteur();
