@@ -9,8 +9,13 @@ import java.util.Random;
 
 public class JeuMemoire implements IJeuMemoire {
 
+<<<<<<< HEAD
     public static int COLONNE = 4;
     public static int LIGNE = 5;
+=======
+    public static int COLONNE;
+    public static int LIGNE;
+>>>>>>> main
     private static int LONGUEUR_CHAINE;
     public static int NBR_ELEMENTS_GRILLE;
 
@@ -35,19 +40,14 @@ public class JeuMemoire implements IJeuMemoire {
     private String ajouterEspaces(int longueur, String stringRecue) {
         String newString = "";
 
-        for (int i = 0; i < stringRecue.length() && !newString.equalsIgnoreCase("rectangle") &&
-                !newString.equalsIgnoreCase("cercle") && !newString.equalsIgnoreCase("triangle"); i++) {
-            newString += stringRecue.charAt(i);
-        }
-        newString += " ";
-
         for (int i = 0; i < stringRecue.length(); i++) {
             newString += stringRecue.charAt(i);
         }
 
-        while (newString.length() < longueur) {
+        while (newString.length() < longueur - 1) {
             newString += " ";
         }
+        newString += "|";
 
         return newString;
     }
@@ -112,7 +112,16 @@ public class JeuMemoire implements IJeuMemoire {
      */
     @Override
     public boolean jouerHumain(int ligne, int colonne) {
-        return false;
+        boolean estValide;
+        ArrayList<Point> listeDePoints = jouerOrdi();
+        Point point = null;
+        point.setLocation(colonne, ligne);
+
+        estValide = listeDePoints.get(1).equals(point);
+
+        listeDePoints.remove(1);
+
+        return estValide;
     }
 
     /**
@@ -164,6 +173,14 @@ public class JeuMemoire implements IJeuMemoire {
 
     @Override
     public String toString() {
-        return "JeuMemoire{}";
+        String stringARetourné = null;
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 5; j++) {
+                stringARetourné = ajouterEspaces(17, grilleDeJeu[i][j].toStringCourt());
+            }
+        }
+
+        return stringARetourné;
     }
 }
