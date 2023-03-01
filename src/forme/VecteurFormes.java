@@ -12,18 +12,17 @@ public class VecteurFormes implements IVecteurFormes {
 
     private ArrayList<Forme> vecteur;
 
-<<<<<<< Updated upstream
     /**
      * Obtenir le vecteur de formes avec le nombre de forme
      *
      * @return le vecteur de formes
      */
-=======
+
     public VecteurFormes() {
         this.vecteur = new ArrayList<>();
     }
 
->>>>>>> Stashed changes
+
     @Override
     public ArrayList<Forme> getVecteur() {
         return vecteur;
