@@ -57,13 +57,16 @@ public class VecteurFormes implements IVecteurFormes {
                     if (j == 0) {
                         f = new Cercle(3);
                         addForme(f, tabCouleur[indexCouleur]);
-                    } else if (j == 1) {
+                        i++;
+                    } else if (j == 1 && i< nbrElements) {
                         f = new Rectangle(3, 3);
                         addForme(f, tabCouleur[indexCouleur]);
-                    } else {
+                        i++;
+                    } else if (i< nbrElements) {
                         f = new Triangle(3, 3, 3);
                         addForme(f, tabCouleur[indexCouleur]);
                         indexCouleur++;
+                        i++;
                     }
                 }
             }
@@ -72,27 +75,6 @@ public class VecteurFormes implements IVecteurFormes {
         }
 
     }
-        /*
-        if (nbrElements > 0) {
-            while (!validerNbrFormes(nbrElements)) {
-                for (int j = 0; j < Couleur.values().length; j++) {
-                    Forme cercle = new Cercle(5);
-                    addForme(cercle, Couleur.values()[j]);
-                    if (!validerNbrFormes(nbrElements)) {
-                        Forme rectangle = new Rectangle(5, 5);
-                        addForme(rectangle, Couleur.values()[j]);
-                    }
-                    if (!validerNbrFormes(nbrElements)) {
-                        Forme triangle = new Triangle(5, 5, 5);
-                        addForme(triangle, Couleur.values()[j]);
-                    }
-                }
-            }
-        } else {
-            throw new ArrayIndexOutOfBoundsException();
-        }
-
-         */
 
     /**
      * Mélanger les éléments du vecteur.

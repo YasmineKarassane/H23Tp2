@@ -17,7 +17,7 @@ class VecteurFormesTest {
     void remplir() {
         VecteurFormes vecteur = new VecteurFormes();
         vecteur.remplir(2);
-        assertEquals("Cercle rougeRectangle rouge", vecteur.toString());
+        assertEquals(" Cercle rouge Rectangle rouge", vecteur.toString());
     }
 
     @Test
