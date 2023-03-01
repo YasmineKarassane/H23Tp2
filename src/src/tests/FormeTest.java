@@ -94,6 +94,6 @@ class FormeTest {
         triangle.setCouleur(Couleur.VERT);
 
         assertEquals("Cercle rouge", cercle.toStringCourt());
-        assertTrue(triangle.toStringCourt() == "Triangle vert");
+        assertEquals("Triangle vert", triangle.toStringCourt() );
     }
 }
