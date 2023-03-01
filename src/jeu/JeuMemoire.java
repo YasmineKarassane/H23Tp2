@@ -34,17 +34,10 @@ public class JeuMemoire implements IJeuMemoire {
     private String ajouterEspaces(int longueur, String stringRecue) {
         String newString = "";
 
-        for (int i = 0; i < stringRecue.length() && !newString.equalsIgnoreCase("rectangle") &&
-                !newString.equalsIgnoreCase("cercle")
-                && !newString.equalsIgnoreCase("triangle"); i++) {
-            newString += stringRecue.charAt(i);
-        }
-        newString += " ";
-
         for (int i = 0; i < stringRecue.length(); i++) {
             newString += stringRecue.charAt(i);
         }
-
+        
         while (newString.length() < longueur -1) {
             newString += " ";
         }
