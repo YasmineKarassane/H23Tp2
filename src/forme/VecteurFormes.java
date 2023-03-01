@@ -14,30 +14,25 @@ public class VecteurFormes implements IVecteurFormes {
         return null;
     }
 
+    private void addForme(Forme forme, Couleur couleur) {
+        forme.setCouleur(couleur);
+        getVecteur().add(forme);
+    }
+
     public void remplir(int nbrElements) throws ArrayIndexOutOfBoundsException {
         if (nbrElements > 0) {
 
-            for (int i = 0; i < nbrElements; i++) {
-
-                for (int j = 0; j < Couleur.values().length; j++) {
-                    Forme cercle = new Cercle(5);
-                    getVecteur().set(i, cercle);
-                    cercle.setCouleur(Couleur.values()[j]);
-                    i++;
-                    if (nbrElements < i) {
-                        Forme rectangle = new Rectangle(5, 5);
-                        getVecteur().set(i, rectangle);
-                        i++;
-                        rectangle.setCouleur(Couleur.values()[j]);
-                    }
-                    if (nbrElements < i) {
-                        Forme triangle = new Triangle(5, 5, 5);
-                        getVecteur().set(i, triangle);
-                        i++;
-                        triangle.setCouleur(Couleur.values()[j]);
-                    }
+            for (int j = 0; j < Couleur.values().length && validerNbrFormes(nbrElements); j++) {
+                Forme cercle = new Cercle(5);
+                addForme(cercle, Couleur.values()[j]);
+                if (validerNbrFormes(nbrElements)) {
+                    Forme rectangle = new Rectangle(5, 5);
+                    addForme(rectangle, Couleur.values()[j]);
                 }
-
+                if (validerNbrFormes(nbrElements)) {
+                    Forme triangle = new Triangle(5, 5, 5);
+                    addForme(triangle, Couleur.values()[j]);
+                }
             }
         } else {
             throw new ArrayIndexOutOfBoundsException();
@@ -52,21 +47,6 @@ public class VecteurFormes implements IVecteurFormes {
             permuter(indexi, indexj);
         }
     }
-
-//    public void shuffle() {
-//        Object[] tabTemporaire = new Object[size()];
-//
-//        for (int i = 0; i < size(); i++) {
-//            int indexi = Utile.getNombreAleatoireEntreBorne(0, size() - 1);
-//            int indexj = Utile.getNombreAleatoireEntreBorne(0, size() - 1);
-//            permuter(indexi, indexj);
-//
-//            for (int j = 0; j < size(); j++) {
-//                tabTemporaire[j] = getTab()[j];
-//            }
-//        }
-//        setTab(tabTemporaire);
-//    }
 
     public void trier() {
         int enOrdre;
@@ -101,10 +81,7 @@ public class VecteurFormes implements IVecteurFormes {
         return stringARetourné;
     }
 
-private boolean validerNbrFormes(int nbFormes){
-        if (vecteur.size() == nbFormes){
-            return true;
-        }
-        return false;
-}
+    private boolean validerNbrFormes(int nbFormes) {
+        return vecteur.size() == nbFormes;
+    }
 }

@@ -11,9 +11,12 @@ public class JeuMemoire implements IJeuMemoire {
 
     public static int COLONNE = 4;
     public static int LIGNE = 5;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     private static int LONGUEUR_CHAINE;
-    public static int NBR_ELEMENTS_GRILLE;
+    public static int NBR_ELEMENTS_GRILLE = 20;
 
     private final Forme[][] grilleDeJeu = new Forme[4][5];
     private int niveau;
@@ -21,7 +24,7 @@ public class JeuMemoire implements IJeuMemoire {
     private ArrayList<Point> vecteurPoints;
 
     public JeuMemoire() {
-        this.vecteurFormes.remplir(20);
+        this.vecteurFormes.remplir(NBR_ELEMENTS_GRILLE);
         vecteurFormes.melanger();
 
         int indexVecteur = 0;
