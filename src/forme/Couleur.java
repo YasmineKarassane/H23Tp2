@@ -1,7 +1,7 @@
 package forme;
 
 public enum Couleur {
-    BLEU, JAUNE, NOIR, ORANGE, ROUGE, VERT;
+    ROUGE, VERT, BLEU, JAUNE, NOIR, ORANGE;
 
     public String getNom() {
         return this.toString().toLowerCase();

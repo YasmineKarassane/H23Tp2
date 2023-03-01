@@ -48,17 +48,18 @@ public class VecteurFormes implements IVecteurFormes {
      */
     public void remplir(int nbrElements) throws ArrayIndexOutOfBoundsException {
         if (nbrElements > 0) {
-
-            for (int j = 0; j < Couleur.values().length && validerNbrFormes(nbrElements); j++) {
-                Forme cercle = new Cercle(5);
-                addForme(cercle, Couleur.values()[j]);
-                if (validerNbrFormes(nbrElements)) {
-                    Forme rectangle = new Rectangle(5, 5);
-                    addForme(rectangle, Couleur.values()[j]);
-                }
-                if (validerNbrFormes(nbrElements)) {
-                    Forme triangle = new Triangle(5, 5, 5);
-                    addForme(triangle, Couleur.values()[j]);
+            while (!validerNbrFormes(nbrElements)) {
+                for (int j = 0; j < Couleur.values().length; j++) {
+                    Forme cercle = new Cercle(5);
+                    addForme(cercle, Couleur.values()[j]);
+                    if (!validerNbrFormes(nbrElements)) {
+                        Forme rectangle = new Rectangle(5, 5);
+                        addForme(rectangle, Couleur.values()[j]);
+                    }
+                    if (!validerNbrFormes(nbrElements)) {
+                        Forme triangle = new Triangle(5, 5, 5);
+                        addForme(triangle, Couleur.values()[j]);
+                    }
                 }
             }
         } else {

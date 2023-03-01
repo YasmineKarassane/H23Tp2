@@ -21,16 +21,8 @@ public class JeuMemoire implements IJeuMemoire {
     private ArrayList<Point> vecteurPoints;
 
     public JeuMemoire() {
-        this.vecteurFormes.remplir(NBR_ELEMENTS_GRILLE);
-        vecteurFormes.melanger();
-
-        int indexVecteur = 0;
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 5; j++) {
-                grilleDeJeu[i][j] = vecteurFormes.getVecteur().get(indexVecteur);
-                indexVecteur++;
-            }
-        }
+        preparerVecteurFormes();
+        preparerGrilleDeJeu();
     }
 
     private String ajouterEspaces(int longueur, String stringRecue) {
@@ -153,16 +145,20 @@ public class JeuMemoire implements IJeuMemoire {
         return vecteurPoints;
     }
 
-    public static void main(String[] args) {
-
-    }
 
     private void preparerGrilleDeJeu() {
-
+        int indexVecteur = 0;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 5; j++) {
+                grilleDeJeu[i][j] = vecteurFormes.getVecteur().get(indexVecteur);
+                indexVecteur++;
+            }
+        }
     }
 
     private void preparerVecteurFormes() {
-
+        this.vecteurFormes.remplir(NBR_ELEMENTS_GRILLE);
+        vecteurFormes.melanger();
     }
 
     /**
@@ -184,5 +180,9 @@ public class JeuMemoire implements IJeuMemoire {
         }
 
         return stringARetourné;
+    }
+
+    public static void main(String[] args) {
+        new JeuMemoire();
     }
 }
