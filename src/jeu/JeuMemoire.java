@@ -9,13 +9,13 @@ import java.util.Random;
 
 public class JeuMemoire implements IJeuMemoire {
 
-<<<<<<< HEAD
+<<<<<<<HEAD
     public static int COLONNE = 4;
     public static int LIGNE = 5;
 =======
     public static int COLONNE;
     public static int LIGNE;
->>>>>>> main
+>>>>>>>main
     private static int LONGUEUR_CHAINE;
     public static int NBR_ELEMENTS_GRILLE;
 
@@ -140,12 +140,18 @@ public class JeuMemoire implements IJeuMemoire {
      */
     @Override
     public ArrayList<Point> jouerOrdi() {
-        int j = -1;
-        for (int i = 0; i < getNiveau(); i++) {
+
+        for (int i = 0; i < getNiveau() + 2; i++) {
+            vecteurPoints.add(i, choisirForme());
+            boolean estPareil = false;
+
             do {
-                j++;
-                choisirForme();
-            } while (choisirForme().equals(vecteurPoints.get(j)));
+
+                for (int j = 0; j < vecteurPoints.size() && !estPareil; j++) {
+                    estPareil = vecteurPoints.get(i).equals(vecteurPoints.get(j));
+                }
+
+            } while (estPareil);
         }
 
         return vecteurPoints;
