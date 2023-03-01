@@ -47,6 +47,31 @@ public class VecteurFormes implements IVecteurFormes {
      * @param nbrElements le nombre de formes voulues
      */
     public void remplir(int nbrElements) throws ArrayIndexOutOfBoundsException {
+        Forme f;
+        int indexCouleur = 0;
+
+        if (nbrElements > 0) {
+            for (int i = 0; i < nbrElements; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (j == 0) {
+                        f = new Cercle(3);
+                        addForme(f, Couleur.values()[indexCouleur]);
+                    } else if (j == 1) {
+                        f = new Rectangle(3, 3);
+                        addForme(f, Couleur.values()[indexCouleur]);
+                    } else {
+                        f = new Triangle(3, 3, 3);
+                        addForme(f, Couleur.values()[indexCouleur]);
+                        indexCouleur++;
+                    }
+                }
+            }
+        } else {
+            throw new ArrayIndexOutOfBoundsException("Le nombre de forme voulue doit être positif");
+        }
+
+    }
+        /*
         if (nbrElements > 0) {
 
             for (int j = 0; j < Couleur.values().length && validerNbrFormes(nbrElements); j++) {
@@ -64,7 +89,8 @@ public class VecteurFormes implements IVecteurFormes {
         } else {
             throw new ArrayIndexOutOfBoundsException();
         }
-    }
+
+         */
 
     /**
      * Mélanger les éléments du vecteur.
