@@ -184,5 +184,6 @@ public class JeuMemoire implements IJeuMemoire {
 
     public static void main(String[] args) {
         new JeuMemoire();
+
     }
 }
