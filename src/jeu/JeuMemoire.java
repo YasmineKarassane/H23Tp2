@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class JeuMemoire implements IJeuMemoire {
 
-    public static int COULEUR;
+    public static int COLONNE;
     public static int LIGNE;
     private static int LONGUEUR_CHAINE;
     public static int NBR_ELEMENTS_GRILLE;
@@ -37,8 +37,8 @@ public class JeuMemoire implements IJeuMemoire {
         for (int i = 0; i < stringRecue.length(); i++) {
             newString += stringRecue.charAt(i);
         }
-        
-        while (newString.length() < longueur -1) {
+
+        while (newString.length() < longueur - 1) {
             newString += " ";
         }
         newString += "|";
@@ -93,7 +93,16 @@ public class JeuMemoire implements IJeuMemoire {
      */
     @Override
     public boolean jouerHumain(int ligne, int colonne) {
-        return false;
+        boolean estValide;
+        ArrayList<Point> listeDePoints = jouerOrdi();
+        Point point = null;
+        point.setLocation(colonne, ligne);
+
+        estValide = listeDePoints.get(1).equals(point);
+
+        listeDePoints.remove(1);
+
+        return estValide;
     }
 
     /**
@@ -141,7 +150,7 @@ public class JeuMemoire implements IJeuMemoire {
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 5; j++) {
-                stringARetourné = ajouterEspaces(17,grilleDeJeu[i][j].toStringCourt());
+                stringARetourné = ajouterEspaces(17, grilleDeJeu[i][j].toStringCourt());
             }
         }
 
