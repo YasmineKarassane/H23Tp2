@@ -47,6 +47,7 @@ public class VecteurFormes implements IVecteurFormes {
      * @param nbrElements le nombre de formes voulues
      */
     public void remplir(int nbrElements) throws ArrayIndexOutOfBoundsException {
+        Couleur[] tabCouleur = new Couleur[]{Couleur.ROUGE, Couleur.VERT, Couleur.BLEU, Couleur.JAUNE, Couleur.NOIR, Couleur.ORANGE};
         Forme f;
         int indexCouleur = 0;
 
@@ -55,13 +56,13 @@ public class VecteurFormes implements IVecteurFormes {
                 for (int j = 0; j < 3; j++) {
                     if (j == 0) {
                         f = new Cercle(3);
-                        addForme(f, Couleur.values()[indexCouleur]);
+                        addForme(f, tabCouleur[indexCouleur]);
                     } else if (j == 1) {
                         f = new Rectangle(3, 3);
-                        addForme(f, Couleur.values()[indexCouleur]);
+                        addForme(f, tabCouleur[indexCouleur]);
                     } else {
                         f = new Triangle(3, 3, 3);
-                        addForme(f, Couleur.values()[indexCouleur]);
+                        addForme(f, tabCouleur[indexCouleur]);
                         indexCouleur++;
                     }
                 }
