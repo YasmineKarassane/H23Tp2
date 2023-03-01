@@ -22,5 +22,9 @@ class VecteurFormesTest {
 
     @Test
     void trier() {
+        VecteurFormes vecteur = new VecteurFormes();
+        vecteur.remplir(3);
+        String doitEtreRetourné = "Cercle rouge Rectangle rouge Triangle rouge";
+
     }
 }

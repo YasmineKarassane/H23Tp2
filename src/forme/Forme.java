@@ -120,13 +120,12 @@ public abstract class Forme implements Comparable<Forme> {
      */
     @Override
     public int compareTo(Forme o) {
-        int compare;
-        String nomCouleur = o.nom + o.couleur;
-        compare = (this.nom + this.couleur).compareTo(nomCouleur);
-        return compare;
+        if (this.nom == o.nom) {
+            return this.couleur.compareTo(o.couleur);
+        } else return this.nom.compareTo(o.nom);
     }
 
     public String toStringCourt() {
-        return getNom() + " " + couleur.getNom();
+        return "" + getNom() + " " + couleur.getNom();
     }
 }
