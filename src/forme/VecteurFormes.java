@@ -5,9 +5,14 @@ import forme.IVecteurFormes;
 import java.util.ArrayList;
 import java.util.Random;
 
-public abstract class VecteurFormes implements IVecteurFormes {
+public class VecteurFormes implements IVecteurFormes {
 
     private ArrayList<Forme> vecteur;
+
+    @Override
+    public ArrayList<Forme> getVecteur() {
+        return null;
+    }
 
     public void remplir(int nbrElements) throws ArrayIndexOutOfBoundsException {
         if (nbrElements > 0) {
@@ -91,7 +96,7 @@ public abstract class VecteurFormes implements IVecteurFormes {
         for (int i = 0; i < getVecteur().size(); i++) {
             stringARetourné += getVecteur().get(i).toStringCourt();
         }
-        
+
         return stringARetourné;
     }
 }

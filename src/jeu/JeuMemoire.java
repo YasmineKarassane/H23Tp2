@@ -13,13 +13,22 @@ public abstract class JeuMemoire implements IJeuMemoire {
     private static int LONGUEUR_CHAINE;
     public static int NBR_ELEMENTS_GRILLE;
 
-    private final Forme[][] grilleDeJeu = new Forme[5][4];
+    private final Forme[][] grilleDeJeu = new Forme[4][5];
     private int niveau;
     private VecteurFormes vecteurFormes;
     private ArrayList<Point> vecteurPoints;
 
     public JeuMemoire() {
+        this.vecteurFormes.remplir(20);
+        vecteurFormes.melanger();
 
+        int indexVecteur = 0;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 5; j++) {
+                grilleDeJeu[i][j] = vecteurFormes.getVecteur().get(indexVecteur);
+                indexVecteur++;
+            }
+        }
     }
 
     private String ajouterEspaces(int longueur, String stringRecue) {
