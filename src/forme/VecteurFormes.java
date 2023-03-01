@@ -58,15 +58,17 @@ public class VecteurFormes implements IVecteurFormes {
                         f = new Cercle(3);
                         addForme(f, tabCouleur[indexCouleur]);
                         i++;
-                    } else if (j == 1 && i< nbrElements) {
+                    } else if (j == 1 && i < nbrElements) {
                         f = new Rectangle(3, 3);
                         addForme(f, tabCouleur[indexCouleur]);
                         i++;
-                    } else if (i< nbrElements) {
+                    } else if (i < nbrElements) {
                         f = new Triangle(3, 3, 3);
                         addForme(f, tabCouleur[indexCouleur]);
                         indexCouleur++;
-                        i++;
+                        if (indexCouleur == 6) {
+                            indexCouleur = 0;
+                        }
                     }
                 }
             }
@@ -93,18 +95,32 @@ public class VecteurFormes implements IVecteurFormes {
      * disponible sur les objets.
      */
     public void trier() {
-        int enOrdre;
-        do {
-            enOrdre = 0;
-            for (int i = 0; i < getVecteur().size() -1; i++) {
-                int valeur = getVecteur().get(i).compareTo(getVecteur().get(i + 1));
-                if (valeur < 0) {
-                    permuter(i, (i + 1));
-                } else {
-                    enOrdre++;
+//        int nbrEnOrdre;
+//        boolean enOrdre = false;
+//        do {
+//            nbrEnOrdre = 0;
+//            for (int i = 0; i < getVecteur().size() - 1; i++) {
+//                int valeur = getVecteur().get(i).compareTo(getVecteur().get(i + 1));
+//                if (valeur < 0) {
+//                    permuter(i, (i + 1));
+//                } else {
+//                    nbrEnOrdre++;
+//                    if (nbrEnOrdre == getVecteur().size()) {
+//                        enOrdre = true;
+//                    }
+//                }
+//            }
+//        } while (!enOrdre);
+
+        for (int i = 0; i < getVecteur().size(); i++) {
+            int plusPetite = 0;
+            for (int j = 1; j < getVecteur().size(); j++) {
+                if (getVecteur().get(j).compareTo(getVecteur().get(i)) > 0) {
+                    plusPetite = j;
                 }
             }
-        } while (enOrdre < getVecteur().size());
+            permuter(i, plusPetite);
+        }
     }
 
     private void permuter(int indicei, int indicej) {
