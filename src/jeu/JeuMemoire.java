@@ -11,7 +11,10 @@ public class JeuMemoire implements IJeuMemoire {
 
     public static int COLONNE = 4;
     public static int LIGNE = 5;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     private static int LONGUEUR_CHAINE;
     public static int NBR_ELEMENTS_GRILLE = 20;
 
