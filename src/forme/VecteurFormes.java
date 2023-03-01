@@ -17,11 +17,9 @@ public class VecteurFormes implements IVecteurFormes {
      *
      * @return le vecteur de formes
      */
-
     public VecteurFormes() {
         this.vecteur = new ArrayList<>();
     }
-
 
     @Override
     public ArrayList<Forme> getVecteur() {

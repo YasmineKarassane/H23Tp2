@@ -27,6 +27,7 @@ public class Rectangle extends Forme {
      * @param largeur du rectangle
      */
     public Rectangle(int hauteur, int largeur) {
+        super("Rectangle");
         setHauteur(hauteur);
         setLargeur(largeur);
     }

@@ -33,25 +33,27 @@ public abstract class Forme implements Comparable<Forme> {
     /**
      * Nom de la forme
      */
-    private final String nom;
+    private String nom;
 
     /**
      * Constructeur, le nom est le nom de la classe en String
      * et la couleur est la couleur par défaut à moins que l'on donne une couleur à la forme avec setCouleur.
      */
-    public Forme() {
-        this.nom = String.valueOf(getClass()).replaceAll("class ", "");
+    public Forme(String nom) {
+        this.nom = nom;
         setCouleur(couleur);
     }
 
     /**
      * Force les classes qui héritent de celle-ci d'avoir une méthode qui calcule le périmètre.
+     *
      * @return le périmètre
-     * */
+     */
     public abstract int calculerPerimetre();
 
     /**
      * Force les classes qui héritent de celle-ci d'avoir une méthode qui calcule la surface.
+     *
      * @return l'aire
      */
     public abstract int calculerSurface();
@@ -59,6 +61,7 @@ public abstract class Forme implements Comparable<Forme> {
     /**
      * Dit si les deux objects sont égaux. Ils sont égaux s'ils ont le même nom, la même couleur
      * et la même surface.
+     *
      * @param nvlForme : forme avec laquelle nous décidons si elle est égale à notre forme d'instance.
      * @return true si les deux formes sont égales et false si elles ne le sont pas
      */
@@ -72,6 +75,7 @@ public abstract class Forme implements Comparable<Forme> {
 
     /**
      * Renvoie la couleur de la forme d'instance.
+     *
      * @return la couleur de la forme
      */
     public Couleur getCouleur() {
@@ -80,6 +84,7 @@ public abstract class Forme implements Comparable<Forme> {
 
     /**
      * Renvoie le nom de la forme d'instance.
+     *
      * @return le nom de la forme
      */
     public String getNom() {
@@ -88,6 +93,7 @@ public abstract class Forme implements Comparable<Forme> {
 
     /**
      * Donne une couleur à la forme
+     *
      * @param couleur : couleur que l'on donne à la forme. Elle doit être de type Couleur.
      */
     public void setCouleur(Couleur couleur) {
@@ -98,6 +104,7 @@ public abstract class Forme implements Comparable<Forme> {
 
     /**
      * Génére un String qui donne le nom, la couleur ainsi que les dimensions de ma forme.
+     *
      * @return Un String qui décrit ma forme.
      */
     @Override
@@ -107,6 +114,7 @@ public abstract class Forme implements Comparable<Forme> {
 
     /**
      * Compare deux formes.
+     *
      * @param o la forme qui est comparée.
      * @return un int qui me dit si ma forme comparée est inférieur, supérieur ou égale à ma forme d'instance.
      */
@@ -118,7 +126,7 @@ public abstract class Forme implements Comparable<Forme> {
         return compare;
     }
 
-    public String toStringCourt(){
-        return nom + " " + couleur.getNom();
+    public String toStringCourt() {
+        return getNom() + " " + couleur.getNom();
     }
 }

@@ -9,6 +9,7 @@ public class Cercle extends Forme {
     private int rayon;
 
     public Cercle(int rayon) {
+        super("Cercle");
         if (rayonEstValide(rayon)) {
             this.rayon = rayon;
         } else throw new FormeException();

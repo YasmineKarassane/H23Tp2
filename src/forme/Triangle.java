@@ -13,6 +13,7 @@ public class Triangle extends Forme {
     private int coteC;
 
     public Triangle(int coteA, int coteB, int coteC) {
+        super("Triangle");
         if (coteEstValide(coteA) && coteEstValide(coteB) && coteEstValide(coteC) && estTriangle(coteA, coteB, coteC)) {
             this.coteA = coteA;
             this.coteB = coteB;
