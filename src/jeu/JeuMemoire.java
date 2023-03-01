@@ -6,7 +6,7 @@ import forme.VecteurFormes;
 import java.awt.*;
 import java.util.ArrayList;
 
-public abstract class JeuMemoire implements IJeuMemoire {
+public class JeuMemoire implements IJeuMemoire {
 
     public static int COULEUR;
     public static int LIGNE;
@@ -32,7 +32,23 @@ public abstract class JeuMemoire implements IJeuMemoire {
     }
 
     private String ajouterEspaces(int longueur, String stringRecue) {
-        return null;
+        String newString = "";
+
+        for (int i = 0; i < stringRecue.length() && !newString.equalsIgnoreCase("rectangle") &&
+                !newString.equalsIgnoreCase("cercle") && !newString.equalsIgnoreCase("triangle"); i++) {
+            newString += stringRecue.charAt(i);
+        }
+        newString += " ";
+
+        for (int i = 0; i < stringRecue.length(); i++) {
+            newString += stringRecue.charAt(i);
+        }
+
+        while (newString.length() < longueur) {
+            newString += " ";
+        }
+
+        return newString;
     }
 
     private Point choisirForme() {
@@ -43,11 +59,25 @@ public abstract class JeuMemoire implements IJeuMemoire {
         return grilleDeJeu;
     }
 
+    /**
+     * Connaître le niveau du jeu.
+     *
+     * @return le niveau du jeu
+     */
     @Override
     public int getNiveau() {
         return niveau;
     }
 
+    /**
+     * Obtenir sous forme de chaîne sans espace le nom et la couleur de la forme
+     * à l'emplacement désiré dans la grille.
+     *
+     * @param ligne   coordonnée ligne de la matrice grille
+     * @param colonne coordonnée colonne de la matrice grille
+     * @return nom et couleur concaténée en chaîne de caractère
+     */
+    @Override
     public String getNomForme(int ligne, int colonne) {
         return getGrille()[ligne][colonne].getNom() + getGrille()[ligne][colonne].getCouleur();
     }
@@ -56,9 +86,39 @@ public abstract class JeuMemoire implements IJeuMemoire {
         return vecteurFormes;
     }
 
-    public abstract boolean jouerHumain(int colonne, int ligne);
+    /**
+     * Valide si la coordonnée jouée par le joueur humain est valide et dans
+     * l'ordre selon les coordonnées générées par l'ordinateur. Voir la méthode
+     * "jouerOrdi()"
+     *
+     * @param ligne   coordonnée ligne de la grille
+     * @param colonne coordonnée colonne dans la grille
+     * @return oui ou non si la coordonnée du joueur est la coordonnée jouée par
+     * l'ordi dans l'ordre respecté.
+     */
+    @Override
+    public boolean jouerHumain(int ligne, int colonne) {
+        return false;
+    }
 
-    public abstract ArrayList<Point> jouerOrdi();
+    /**
+     * L'intelligence du jeu. Génère un tableau de coordonnées (des objets <b>Point(colonne, ligne)</b>)
+     * au hasard. Les points générés doivent être valides dans la grille de jeu.
+     * Le nombre de points générés est en relation avec le niveau courant du jeu.
+     * Il obéit à la règle suivante :
+     * <p>
+     * Le nombre de points générés = niveau courant du jeu + 2
+     *
+     * <b>Il est important qu'un même point ne soit pas choisi 2 fois.</b>
+     * <b>Note</b>: la classe java.awt.Point encapsule un x et un y. Alors que dans le JeuMemoire,
+     * on utilise plutôt colonne et ligne. Ainsi, x correspond à colonne et y à ligne.
+     *
+     * @return la liste des coordonnées <b>Point(colonne, ligne)</b> des formes choisies dans la grille.
+     */
+    @Override
+    public ArrayList<Point> jouerOrdi() {
+        return null;
+    }
 
     public static void main(String[] args) {
 
@@ -72,6 +132,10 @@ public abstract class JeuMemoire implements IJeuMemoire {
 
     }
 
+    /**
+     * Ajoute 1 au niveau si celui-ci est en-dessous de 6, autrement il demeure à 6.
+     */
+    @Override
     public void setNiveauPlusUn() {
         this.niveau = this.niveau + 1;
     }
