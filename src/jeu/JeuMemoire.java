@@ -5,11 +5,12 @@ import forme.VecteurFormes;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class JeuMemoire implements IJeuMemoire {
 
-    public static int COULEUR;
-    public static int LIGNE;
+    public static int COLONNE = 4;
+    public static int LIGNE = 5;
     private static int LONGUEUR_CHAINE;
     public static int NBR_ELEMENTS_GRILLE;
 
@@ -51,8 +52,21 @@ public class JeuMemoire implements IJeuMemoire {
         return newString;
     }
 
+    public static int getNombreAleatoireEntreBorne(int min, int max) {
+        if (min >= max) {
+            throw new IllegalArgumentException("max doit être plus grand que min");
+        }
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
+    }
+
     private Point choisirForme() {
-        return null;
+        int x = getNombreAleatoireEntreBorne(1, COLONNE);
+        int y = getNombreAleatoireEntreBorne(1, LIGNE);
+
+        Point point = new Point(x, y);
+
+        return point;
     }
 
     public Forme[][] getGrille() {
@@ -117,7 +131,15 @@ public class JeuMemoire implements IJeuMemoire {
      */
     @Override
     public ArrayList<Point> jouerOrdi() {
-        return null;
+        int j = -1;
+        for (int i = 0; i < getNiveau(); i++) {
+            do {
+                j++;
+                choisirForme();
+            } while (choisirForme().equals(vecteurPoints.get(j)));
+        }
+
+        return vecteurPoints;
     }
 
     public static void main(String[] args) {
