@@ -135,7 +135,7 @@ public class VecteurFormes implements IVecteurFormes {
         String stringARetourné = "";
 
         for (int i = 0; i < getVecteur().size(); i++) {
-            stringARetourné += getVecteur().get(i).toStringCourt();
+            stringARetourné += getVecteur().get(i).toStringCourt() + "";
         }
 
         return stringARetourné;

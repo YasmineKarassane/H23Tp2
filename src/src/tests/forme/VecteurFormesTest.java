@@ -10,7 +10,7 @@ class VecteurFormesTest {
     void getVecteur() {
         VecteurFormes vecteur = new VecteurFormes();
         vecteur.remplir(2);
-        assertEquals("r", vecteur.getVecteur());
+        assertEquals("[Cercle rouge 28, 283(3 est le rayon), Rectangle rouge 9, 93, 3 (où 3 est la hauteur et 3 est la largeur)]", vecteur.getVecteur().toString());
     }
 
     @Test
@@ -18,10 +18,16 @@ class VecteurFormesTest {
         VecteurFormes vecteur = new VecteurFormes();
         vecteur.remplir(2);
         assertEquals(" Cercle rouge Rectangle rouge", vecteur.toString());
+<<<<<<< Updated upstream
 
         VecteurFormes vecteur1 = new VecteurFormes();
         vecteur1.remplir(12);
         assertEquals(" Cercle rouge Rectangle rouge Triangle rouge Cercle vert Rectangle vert Triangle vert Cercle bleu Rectangle bleu Triangle bleu Cercle jaune Rectangle jaune Triangle jaune", vecteur1.toString());
+=======
+        VecteurFormes vec = new VecteurFormes();
+        vec.remplir(20);
+        assertEquals("d", vec.toString());
+>>>>>>> Stashed changes
     }
 
     @Test

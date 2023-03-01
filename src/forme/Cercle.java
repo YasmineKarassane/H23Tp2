@@ -39,6 +39,6 @@ public class Cercle extends Forme {
 
     @Override
     public String toString() {
-        return super.toString() + rayon + "( " + rayon + " est le rayon )";
+        return super.toString() + rayon + "(" + rayon + " est le rayon)";
     }
 }
