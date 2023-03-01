@@ -96,7 +96,7 @@ public class VecteurFormes implements IVecteurFormes {
         int enOrdre;
         do {
             enOrdre = 0;
-            for (int i = 0; i < getVecteur().size(); i++) {
+            for (int i = 0; i < getVecteur().size() -1; i++) {
                 int valeur = getVecteur().get(i).compareTo(getVecteur().get(i + 1));
                 if (valeur < 0) {
                     permuter(i, (i + 1));
