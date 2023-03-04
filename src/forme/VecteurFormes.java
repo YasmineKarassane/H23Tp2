@@ -95,31 +95,14 @@ public class VecteurFormes implements IVecteurFormes {
      * disponible sur les objets.
      */
     public void trier() {
-//        int nbrEnOrdre;
-//        boolean enOrdre = false;
-//        do {
-//            nbrEnOrdre = 0;
-//            for (int i = 0; i < getVecteur().size() - 1; i++) {
-//                int valeur = getVecteur().get(i).compareTo(getVecteur().get(i + 1));
-//                if (valeur < 0) {
-//                    permuter(i, (i + 1));
-//                } else {
-//                    nbrEnOrdre++;
-//                    if (nbrEnOrdre == getVecteur().size()) {
-//                        enOrdre = true;
-//                    }
-//                }
-//            }
-//        } while (!enOrdre);
-
         for (int i = 0; i < getVecteur().size(); i++) {
-            int plusPetite = 0;
-            for (int j = 1; j < getVecteur().size(); j++) {
-                if (getVecteur().get(j).compareTo(getVecteur().get(i)) > 0) {
-                    plusPetite = j;
+            int indexPlusPetit = i;
+            for (int j = i; j < getVecteur().size(); j++) {
+                if (getVecteur().get(i).compareTo(getVecteur().get(j)) > 0 && getVecteur().get(indexPlusPetit).compareTo(getVecteur().get(j)) > 0) {
+                    indexPlusPetit = j;
                 }
             }
-            permuter(i, plusPetite);
+            permuter(i, indexPlusPetit);
         }
     }
 

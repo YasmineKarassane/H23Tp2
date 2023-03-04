@@ -84,6 +84,13 @@ class FormeTest {
     void compareTo() {
         Forme cercle = new Cercle(29);
         Forme triangle = new Triangle(20, 20, 20);
+        Forme cercle1 = new Cercle(5);
+        cercle1.setCouleur(Couleur.ROUGE);
+        Forme triangle1 = new Triangle(5,5,5);
+        triangle1.setCouleur(Couleur.BLEU);
+
+        assertEquals(cercle1.compareTo(cercle), 0);
+        assertNotEquals(triangle.compareTo(triangle1), 0);
         assertTrue(cercle.compareTo(triangle) == -17);
         assertFalse(cercle.compareTo(triangle) == 0);
     }
