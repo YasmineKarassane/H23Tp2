@@ -9,6 +9,10 @@ import java.util.Random;
 
 public class JeuMemoire implements IJeuMemoire {
 
+    /**
+     * Nombre maximal de niveaux de jeu.
+     */
+    public static final int NIVEAU_MAX = 6;
     public static int COLONNE = 4;
     public static int LIGNE = 5;
 
@@ -21,6 +25,7 @@ public class JeuMemoire implements IJeuMemoire {
     private ArrayList<Point> vecteurPoints;
 
     public JeuMemoire() {
+        this.vecteurFormes = new VecteurFormes();
         preparerVecteurFormes();
         preparerGrilleDeJeu();
     }
