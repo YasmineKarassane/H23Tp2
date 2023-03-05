@@ -25,7 +25,6 @@ public class JeuMemoire implements IJeuMemoire {
     private ArrayList<Point> vecteurPoints;
 
     public JeuMemoire() {
-        this.vecteurFormes = new VecteurFormes();
         preparerVecteurFormes();
         preparerGrilleDeJeu();
     }
@@ -162,6 +161,7 @@ public class JeuMemoire implements IJeuMemoire {
     }
 
     private void preparerVecteurFormes() {
+        this.vecteurFormes = new VecteurFormes();
         this.vecteurFormes.remplir(NBR_ELEMENTS_GRILLE);
         vecteurFormes.melanger();
     }
@@ -171,7 +171,9 @@ public class JeuMemoire implements IJeuMemoire {
      */
     @Override
     public void setNiveauPlusUn() {
-        this.niveau = this.niveau + 1;
+        if (niveau < NIVEAU_MAX){
+            this.niveau = niveau + 1;
+        }
     }
 
     @Override
