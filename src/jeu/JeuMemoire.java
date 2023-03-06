@@ -85,7 +85,11 @@ public class JeuMemoire implements IJeuMemoire {
      */
     @Override
     public String getNomForme(int ligne, int colonne) {
-        return getGrille()[ligne][colonne].getNom() + getGrille()[ligne][colonne].getCouleur();
+        char lettre1 = String.valueOf(getGrille()[ligne][colonne].getCouleur()).charAt(0);
+        String couleur = String.valueOf(getGrille()[ligne][colonne].getCouleur());
+        couleur = couleur.substring(1).toLowerCase();
+        couleur = lettre1 + couleur;
+        return getGrille()[ligne][colonne].getNom() + couleur;
     }
 
     public VecteurFormes getVecteur() {
@@ -171,7 +175,7 @@ public class JeuMemoire implements IJeuMemoire {
      */
     @Override
     public void setNiveauPlusUn() {
-        if (niveau < NIVEAU_MAX){
+        if (niveau < NIVEAU_MAX) {
             this.niveau = niveau + 1;
         }
     }
@@ -182,7 +186,7 @@ public class JeuMemoire implements IJeuMemoire {
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 5; j++) {
-                stringARetourné = ajouterEspaces(17, grilleDeJeu[i][j].toStringCourt());
+                stringARetourné += ajouterEspaces(17, grilleDeJeu[i][j].toStringCourt());
             }
         }
 
