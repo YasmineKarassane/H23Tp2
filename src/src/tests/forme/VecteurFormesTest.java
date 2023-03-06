@@ -22,9 +22,6 @@ class VecteurFormesTest {
         VecteurFormes vecteur1 = new VecteurFormes();
         vecteur1.remplir(12);
         assertEquals(" Cercle rouge Rectangle rouge Triangle rouge Cercle vert Rectangle vert Triangle vert Cercle bleu Rectangle bleu Triangle bleu Cercle jaune Rectangle jaune Triangle jaune", vecteur1.toString());
-        VecteurFormes vec = new VecteurFormes();
-        vec.remplir(20);
-        assertEquals("d", vec.toString());
     }
 
     @Test
