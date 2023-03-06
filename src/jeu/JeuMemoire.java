@@ -53,8 +53,8 @@ public class JeuMemoire implements IJeuMemoire {
     }
 
     private Point choisirForme() {
-        int x = getNombreAleatoireEntreBorne(1, COLONNE);
-        int y = getNombreAleatoireEntreBorne(1, LIGNE);
+        int x = getNombreAleatoireEntreBorne(1, LIGNE);
+        int y = getNombreAleatoireEntreBorne(1, COLONNE);
 
         Point point = new Point(x, y);
 
@@ -139,10 +139,11 @@ public class JeuMemoire implements IJeuMemoire {
 
             do {
 
-                for (int j = 0; j < vecteurPoints.size() && !estPareil; j++) {
+                for (int j = 0; j < vecteurPoints.size(); j++) {
                     estPareil = vecteurPoints.get(i).equals(vecteurPoints.get(j));
                     if (estPareil) {
                         vecteurPoints.set(i, choisirForme());
+                        estPareil = false;
                     }
                 }
 
