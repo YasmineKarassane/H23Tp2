@@ -85,7 +85,7 @@ public class JeuMemoire implements IJeuMemoire {
      */
     @Override
     public String getNomForme(int ligne, int colonne) {
-        return getGrille()[ligne][colonne].getNom() + getGrille()[ligne][colonne].getCouleur();
+        return getGrille()[ligne][colonne].getNom() + getGrille()[ligne][colonne].getCouleur().getNom();
     }
 
     public VecteurFormes getVecteur() {
