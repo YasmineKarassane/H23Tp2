@@ -16,7 +16,7 @@ public class JeuMemoire implements IJeuMemoire {
     public static int COLONNE = 5;
     public static int LIGNE = 4;
 
-    private static int LONGUEUR_CHAINE;
+    private static int LONGUEUR_CHAINE = 2;
     public static int NBR_ELEMENTS_GRILLE = 20;
 
     private final Forme[][] grilleDeJeu = new Forme[4][5];
@@ -130,6 +130,7 @@ public class JeuMemoire implements IJeuMemoire {
     @Override
     public ArrayList<Point> jouerOrdi() {
         vecteurPoints = new ArrayList<>();
+<<<<<<< Updated upstream
 
         for (int i = 0; i < getNiveau() + 2; i++) {
             vecteurPoints.add(i,choisirForme());
@@ -138,6 +139,20 @@ public class JeuMemoire implements IJeuMemoire {
                 if (vecteurPoints.get(i).equals(vecteurPoints.get(j))) {
                     vecteurPoints.set(i,choisirForme());
                     j--;
+=======
+        for (int i = 0; i < (getNiveau() + 2); i++) {
+            vecteurPoints.add(i, choisirForme());
+            boolean estPareil = false;
+
+            do {
+
+                for (int j = 0; j < vecteurPoints.size(); j++) {
+                    vecteurPoints.set(i, choisirForme());
+                    estPareil = vecteurPoints.get(i).equals(vecteurPoints.get(j));
+                    if (estPareil) {
+                        estPareil = false;
+                    }
+>>>>>>> Stashed changes
                 }
             }
 
