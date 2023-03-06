@@ -13,8 +13,8 @@ public class JeuMemoire implements IJeuMemoire {
      * Nombre maximal de niveaux de jeu.
      */
     public static final int NIVEAU_MAX = 6;
-    public static int COLONNE = 4;
-    public static int LIGNE = 5;
+    public static int COLONNE = 5;
+    public static int LIGNE = 4;
 
     private static int LONGUEUR_CHAINE;
     public static int NBR_ELEMENTS_GRILLE = 20;
@@ -85,11 +85,7 @@ public class JeuMemoire implements IJeuMemoire {
      */
     @Override
     public String getNomForme(int ligne, int colonne) {
-        char lettre1 = String.valueOf(getGrille()[ligne][colonne].getCouleur()).charAt(0);
-        String couleur = String.valueOf(getGrille()[ligne][colonne].getCouleur());
-        couleur = couleur.substring(1).toLowerCase();
-        couleur = lettre1 + couleur;
-        return getGrille()[ligne][colonne].getNom() + couleur;
+        return getGrille()[ligne][colonne].getNom() + getGrille()[ligne][colonne].getCouleur();
     }
 
     public VecteurFormes getVecteur() {
@@ -136,7 +132,7 @@ public class JeuMemoire implements IJeuMemoire {
      */
     @Override
     public ArrayList<Point> jouerOrdi() {
-
+        vecteurPoints = new ArrayList<>();
         for (int i = 0; i < getNiveau() + 2; i++) {
             vecteurPoints.add(i, choisirForme());
             boolean estPareil = false;
@@ -145,6 +141,9 @@ public class JeuMemoire implements IJeuMemoire {
 
                 for (int j = 0; j < vecteurPoints.size() && !estPareil; j++) {
                     estPareil = vecteurPoints.get(i).equals(vecteurPoints.get(j));
+                    if (estPareil) {
+                        vecteurPoints.set(i, choisirForme());
+                    }
                 }
 
             } while (estPareil);
