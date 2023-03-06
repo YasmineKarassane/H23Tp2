@@ -130,7 +130,6 @@ public class JeuMemoire implements IJeuMemoire {
     @Override
     public ArrayList<Point> jouerOrdi() {
         vecteurPoints = new ArrayList<>();
-<<<<<<< Updated upstream
 
         for (int i = 0; i < getNiveau() + 2; i++) {
             vecteurPoints.add(i,choisirForme());
@@ -139,25 +138,10 @@ public class JeuMemoire implements IJeuMemoire {
                 if (vecteurPoints.get(i).equals(vecteurPoints.get(j))) {
                     vecteurPoints.set(i,choisirForme());
                     j--;
-=======
-        for (int i = 0; i < (getNiveau() + 2); i++) {
-            vecteurPoints.add(i, choisirForme());
-            boolean estPareil = false;
-
-            do {
-
-                for (int j = 0; j < vecteurPoints.size(); j++) {
-                    vecteurPoints.set(i, choisirForme());
-                    estPareil = vecteurPoints.get(i).equals(vecteurPoints.get(j));
-                    if (estPareil) {
-                        estPareil = false;
-                    }
->>>>>>> Stashed changes
                 }
             }
 
         }
-
 
         return vecteurPoints;
     }
