@@ -130,22 +130,19 @@ public class JeuMemoire implements IJeuMemoire {
     @Override
     public ArrayList<Point> jouerOrdi() {
         vecteurPoints = new ArrayList<>();
-        for (int i = 0; i < (getNiveau() + 2); i++) {
-            vecteurPoints.add(i, choisirForme());
-            boolean estPareil = false;
 
-            do {
+        for (int i = 0; i < getNiveau() + 2; i++) {
+            vecteurPoints.add(i,choisirForme());
 
-                for (int j = 0; j < vecteurPoints.size(); j++) {
-                    estPareil = vecteurPoints.get(i).equals(vecteurPoints.get(j));
-                    if (estPareil) {
-                        vecteurPoints.set(i, choisirForme());
-                        estPareil = false;
-                    }
+            for (int j = 0; j < i; j++) {
+                if (vecteurPoints.get(i).equals(vecteurPoints.get(j))) {
+                    vecteurPoints.set(i,choisirForme());
+                    j--;
                 }
+            }
 
-            } while (estPareil);
         }
+
 
         return vecteurPoints;
     }
