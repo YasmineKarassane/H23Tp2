@@ -20,7 +20,7 @@ public class JeuMemoire implements IJeuMemoire {
     public static int NBR_ELEMENTS_GRILLE = 20;
 
     private final Forme[][] grilleDeJeu = new Forme[4][5];
-    private int niveau;
+    private int niveau = 1;
     private VecteurFormes vecteurFormes;
     private ArrayList<Point> vecteurPoints;
 
@@ -53,8 +53,8 @@ public class JeuMemoire implements IJeuMemoire {
     }
 
     private Point choisirForme() {
-        int x = getNombreAleatoireEntreBorne(1, COLONNE);
-        int y = getNombreAleatoireEntreBorne(1, LIGNE);
+        int x = getNombreAleatoireEntreBorne(1, COLONNE -1);
+        int y = getNombreAleatoireEntreBorne(1, LIGNE-1);
 
         Point point = new Point(x, y);
 
@@ -105,13 +105,6 @@ public class JeuMemoire implements IJeuMemoire {
     @Override
     public boolean jouerHumain(int ligne, int colonne) {
         boolean estValide;
-//        ArrayList<Point> listeDePoints = jouerOrdi();
-//        Point point = new Point();
-//        point.setLocation(colonne, ligne);
-//
-//        estValide = listeDePoints.get(1).equals(point);
-//
-//        listeDePoints.remove(1);
         Point point = new Point(colonne, ligne);
 
         estValide = vecteurPoints.get(0).equals(point);
