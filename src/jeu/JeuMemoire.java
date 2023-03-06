@@ -53,8 +53,8 @@ public class JeuMemoire implements IJeuMemoire {
     }
 
     private Point choisirForme() {
-        int x = getNombreAleatoireEntreBorne(1, LIGNE);
-        int y = getNombreAleatoireEntreBorne(1, COLONNE);
+        int x = getNombreAleatoireEntreBorne(1, COLONNE);
+        int y = getNombreAleatoireEntreBorne(1, LIGNE);
 
         Point point = new Point(x, y);
 
@@ -105,13 +105,17 @@ public class JeuMemoire implements IJeuMemoire {
     @Override
     public boolean jouerHumain(int ligne, int colonne) {
         boolean estValide;
-        ArrayList<Point> listeDePoints = jouerOrdi();
-        Point point = null;
-        point.setLocation(colonne, ligne);
+//        ArrayList<Point> listeDePoints = jouerOrdi();
+//        Point point = new Point();
+//        point.setLocation(colonne, ligne);
+//
+//        estValide = listeDePoints.get(1).equals(point);
+//
+//        listeDePoints.remove(1);
+        Point point = new Point(colonne, ligne);
 
-        estValide = listeDePoints.get(1).equals(point);
-
-        listeDePoints.remove(1);
+        estValide = vecteurPoints.get(0).equals(point);
+        vecteurPoints.remove(0);
 
         return estValide;
     }
@@ -133,7 +137,7 @@ public class JeuMemoire implements IJeuMemoire {
     @Override
     public ArrayList<Point> jouerOrdi() {
         vecteurPoints = new ArrayList<>();
-        for (int i = 0; i < getNiveau() + 2; i++) {
+        for (int i = 0; i < (getNiveau() + 2); i++) {
             vecteurPoints.add(i, choisirForme());
             boolean estPareil = false;
 
