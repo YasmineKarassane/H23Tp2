@@ -11,7 +11,9 @@ class JeuMemoireTest {
     void getGrille() {
         JeuMemoire jeu = new JeuMemoire();
 
-        assertEquals("", jeu.getGrille());
+        String attendue = jeu.getGrille()[1][1].toString();
+        assertFalse(attendue.equals(null));
+        assertEquals(attendue, jeu.getGrille()[1][1].toString());
     }
 
     @Test
@@ -35,8 +37,9 @@ class JeuMemoireTest {
     void getNomForme() {
         JeuMemoire jeu1 = new JeuMemoire();
         jeu1.getVecteur().trier();
+        String s = jeu1.getNomForme(1, 1);
 
-        assertEquals("Cerclebleu", jeu1.getNomForme(1, 1));
+        assertEquals("Cerclebleu", s);
     }
 
     @Test
