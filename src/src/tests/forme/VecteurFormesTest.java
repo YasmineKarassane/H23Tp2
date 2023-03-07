@@ -1,3 +1,10 @@
+/*
+420-202 – TP2 – Traitement de données orienté objet
+Lien GIT Hub : https://github.com/YasmineKarassane/H23Tp2/commits/main
+Nom : Karassane, Yasmine; ton DA
+Nom : Riverin, Gabriel; 2244454
+ */
+
 package forme;
 
 import org.junit.jupiter.api.Test;

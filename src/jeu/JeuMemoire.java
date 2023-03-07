@@ -1,3 +1,10 @@
+/*
+420-202 – TP2 – Traitement de données orienté objet
+Lien GIT Hub : https://github.com/YasmineKarassane/H23Tp2/commits/main
+Nom : Karassane, Yasmine; ton DA
+Nom : Riverin, Gabriel; 2244454
+ */
+
 package jeu;
 
 import forme.Forme;
@@ -16,7 +23,7 @@ public class JeuMemoire implements IJeuMemoire {
     public static int COLONNE = 5;
     public static int LIGNE = 4;
 
-    private static int LONGUEUR_CHAINE;
+    private static int LONGUEUR_CHAINE = 2;
     public static int NBR_ELEMENTS_GRILLE = 20;
 
     private final Forme[][] grilleDeJeu = new Forme[4][5];
@@ -139,6 +146,10 @@ public class JeuMemoire implements IJeuMemoire {
             }
 
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
         return vecteurPoints;
     }
 

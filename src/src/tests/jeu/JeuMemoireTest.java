@@ -1,3 +1,9 @@
+/*
+420-202 – TP2 – Traitement de données orienté objet
+Lien GIT Hub : https://github.com/YasmineKarassane/H23Tp2/commits/main
+Nom : Karassane, Yasmine; ton DA
+Nom : Riverin, Gabriel; 2244454
+ */
 
 package jeu;
 
@@ -17,26 +23,44 @@ class JeuMemoireTest {
 
     @Test
     void getGrille() {
+        JeuMemoire jeu = new JeuMemoire();
 
+        String attendue = jeu.getGrille()[1][1].toString();
+        assertFalse(attendue.equals(null));
+        assertEquals(attendue, jeu.getGrille()[1][1].toString());
     }
 
     @Test
     void getNiveau() {
+        JeuMemoire jeu = new JeuMemoire();
+        assertEquals(1, jeu.getNiveau());
+        jeu.setNiveauPlusUn();
+        assertEquals(2, jeu.getNiveau());
+        jeu.setNiveauPlusUn();
+        jeu.setNiveauPlusUn();
+        jeu.setNiveauPlusUn();
+        assertEquals(5, jeu.getNiveau());
+        jeu.setNiveauPlusUn();
+        assertEquals(6, jeu.getNiveau());
+        jeu.setNiveauPlusUn();
+        assertEquals(6, jeu.getNiveau());
 
     }
 
     @Test
     void getNomForme() {
+        JeuMemoire jeu1 = new JeuMemoire();
+        String attendue = jeu1.getNomForme(1, 1);
 
-        System.out.println(jeu.getNomForme(1, 1));
-        System.out.println(jeu.getNomForme(1, 2));
-        System.out.println(jeu.getNomForme(2, 1));
-        System.out.println(jeu.getNomForme(2, 4));
+        assertFalse(attendue.equals(null));
+        assertEquals(attendue, jeu1.getNomForme(1, 1));
     }
 
     @Test
     void getVecteur() {
-
+        JeuMemoire jeu = new JeuMemoire();
+        jeu.getVecteur().trier();
+        assertEquals(" Cercle bleu Cercle jaune Cercle noir Cercle orange Cercle rouge Cercle rouge Cercle vert Rectangle bleu Rectangle jaune Rectangle noir Rectangle orange Rectangle rouge Rectangle rouge Rectangle vert Triangle bleu Triangle jaune Triangle noir Triangle orange Triangle rouge Triangle vert", jeu.getVecteur().toString());
     }
 
     @Test
@@ -63,6 +87,8 @@ class JeuMemoireTest {
 
     @Test
     void jouerOrdi() {
+        JeuMemoire jeu1 = new JeuMemoire();
 
+        assertFalse(jeu1.jouerOrdi().get(1).equals(jeu1.jouerOrdi().get(2)) && jeu1.jouerOrdi().get(1).equals(jeu1.jouerOrdi().get(3)));
     }
 }
