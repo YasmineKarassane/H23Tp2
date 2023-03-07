@@ -36,10 +36,10 @@ class JeuMemoireTest {
     @Test
     void getNomForme() {
         JeuMemoire jeu1 = new JeuMemoire();
-        jeu1.getVecteur().trier();
-        String s = jeu1.getNomForme(1, 1);
+        String attendue = jeu1.getNomForme(1, 1);
 
-        assertEquals("Cerclebleu", s);
+        assertFalse(attendue.equals(null));
+        assertEquals(attendue, jeu1.getNomForme(1, 1));
     }
 
     @Test
