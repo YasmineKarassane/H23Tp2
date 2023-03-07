@@ -10,6 +10,8 @@ class JeuMemoireTest {
     @Test
     void getGrille() {
         JeuMemoire jeu = new JeuMemoire();
+
+        assertEquals("", jeu.getGrille());
     }
 
     @Test
@@ -18,6 +20,15 @@ class JeuMemoireTest {
         assertEquals(1, jeu.getNiveau());
         jeu.setNiveauPlusUn();
         assertEquals(2, jeu.getNiveau());
+        jeu.setNiveauPlusUn();
+        jeu.setNiveauPlusUn();
+        jeu.setNiveauPlusUn();
+        assertEquals(5, jeu.getNiveau());
+        jeu.setNiveauPlusUn();
+        assertEquals(6, jeu.getNiveau());
+        jeu.setNiveauPlusUn();
+        assertEquals(6, jeu.getNiveau());
+
     }
 
     @Test
@@ -41,5 +52,8 @@ class JeuMemoireTest {
 
     @Test
     void jouerOrdi() {
+        JeuMemoire jeu1 = new JeuMemoire();
+
+        assertFalse(jeu1.jouerOrdi().get(1).equals(jeu1.jouerOrdi().get(2)) && jeu1.jouerOrdi().get(1).equals(jeu1.jouerOrdi().get(3)));
     }
 }
