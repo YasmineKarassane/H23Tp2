@@ -55,10 +55,7 @@ public class JeuMemoire implements IJeuMemoire {
     private Point choisirForme() {
         int x = getNombreAleatoireEntreBorne(1, COLONNE -1);
         int y = getNombreAleatoireEntreBorne(1, LIGNE-1);
-
-        Point point = new Point(x, y);
-
-        return point;
+        return new Point(x, y);
     }
 
     public Forme[][] getGrille() {
@@ -142,8 +139,6 @@ public class JeuMemoire implements IJeuMemoire {
             }
 
         }
-
-
         return vecteurPoints;
     }
 
@@ -152,7 +147,7 @@ public class JeuMemoire implements IJeuMemoire {
         int indexVecteur = 0;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 5; j++) {
-                grilleDeJeu[i][j] = vecteurFormes.getVecteur().get(indexVecteur);
+                grilleDeJeu[i][j] = getVecteur().getVecteur().get(indexVecteur);
                 indexVecteur++;
             }
         }
@@ -160,8 +155,8 @@ public class JeuMemoire implements IJeuMemoire {
 
     private void preparerVecteurFormes() {
         this.vecteurFormes = new VecteurFormes();
-        this.vecteurFormes.remplir(NBR_ELEMENTS_GRILLE);
-        vecteurFormes.melanger();
+        getVecteur().remplir(NBR_ELEMENTS_GRILLE);
+        getVecteur().melanger();
     }
 
     /**
@@ -189,6 +184,5 @@ public class JeuMemoire implements IJeuMemoire {
 
     public static void main(String[] args) {
         new JeuMemoire();
-
     }
 }
