@@ -1,7 +1,7 @@
 /*
 420-202 – TP2 – Traitement de données orienté objet
 Lien GIT Hub : https://github.com/YasmineKarassane/H23Tp2/commits/main
-Nom : Karassane, Yasmine; ton DA
+Nom : Karassane, Yasmine; 2138750
 Nom : Riverin, Gabriel; 2244454
  */
 
